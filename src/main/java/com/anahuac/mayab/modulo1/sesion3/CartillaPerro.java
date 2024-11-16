@@ -1,5 +1,8 @@
 package com.anahuac.mayab.modulo1.sesion3;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -56,5 +59,69 @@ public class CartillaPerro {
 		
 	}
 	
+	
+	public void imprimirCartilla(){
+		for(String vacuna : vacunas.keySet() ) {
+			System.out.println("Vacuna : " + vacuna);
+			ArrayList<String> fechas = vacunas.get(vacuna);
+			for (String fecha : fechas) {
+				System.out.println("Fecha : " + fecha);
+			}
+			System.out.println("----------" );
+		}
+		
+	}
+	
+	
+	public void imprimirExpediente(){
+	String nombreArchivo = datosPerro.getNombre()+".txt";
+	FileWriter archivo;
+	try 
+    {  archivo = new FileWriter(nombreArchivo);
+        PrintWriter pw = new PrintWriter(archivo);
+        pw.println("---Datos Perro-----");
+        pw.println(datosPerro.toString());
+        pw.println("-----------");
+        
+        for(String vacuna : vacunas.keySet() ) {
+        	pw.println("Vacuna : " + vacuna);
+			ArrayList<String> fechas = vacunas.get(vacuna);
+			for (String fecha : fechas) {
+				pw.println("Fecha : " + fecha);
+			}
+			pw.println("-----------");
+		}
+        pw.close();
+    } catch (IOException e) {
+    	System.out.println("Hubo un error al abrir");
+        e.printStackTrace();
+    }
+	}
+	
+	
+	public void imprimirExepcion(){
+	String nombreArchivo = datosPerro.getNombre()+".txt";
+	FileWriter archivo;
+	try 
+    {  archivo = new FileWriter(nombreArchivo);
+        PrintWriter pw = new PrintWriter(archivo);
+        pw.println("---Datos Perro-----");
+        pw.println(datosPerro.toString());
+        pw.println("-----------");
+        
+        for(String vacuna : vacunas.keySet() ) {
+        	pw.println("Vacuna : " + vacuna);
+			ArrayList<String> fechas = vacunas.get(vacuna);
+			for (String fecha : fechas) {
+				pw.println("Fecha : " + fecha);
+			}
+			pw.println("-----------");
+		}
+        pw.close();
+    } catch (IOException e) {
+    	System.out.println("Hubo un error al abrir");
+        e.printStackTrace();
+    }
+	}
 	
 }

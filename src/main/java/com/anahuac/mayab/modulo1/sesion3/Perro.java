@@ -88,6 +88,12 @@ public class Perro {
 		System.out.println("Me llamo: " + this.nombre + " mi dueño es: " + this.nombreDuenio +  " y Estoy ladrando: gua gua");
 	}
 
+	@Override
+	public String toString() {
+		return "Perro [raza=" + raza + ", tamanio=" + tamanio + ", peso=" + peso + ", nombre=" + nombre
+				+ ", nombreDuenio=" + nombreDuenio + ", edad=" + edad + "]";
+	}
+
 	
 	
 	
