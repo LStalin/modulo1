@@ -1,0 +1,15 @@
+---Datos Perro-----
+Perro [raza=unica, tamanio=null, peso=0.0, nombre=Firulais, nombreDuenio=Paty, edad=5]
+-----------
+Vacuna : Moc
+Fecha : 5-marzo-2022
+-----------
+Vacuna : rabia2
+Fecha : 5-marzo-2022
+-----------
+Vacuna : rabia
+Fecha : 5-marzo-2022
+-----------
+Vacuna : Parvo
+Fecha : 5-marzo-2022
+-----------
