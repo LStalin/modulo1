@@ -11,7 +11,7 @@ public class Perro {
 	private String nombreDuenio;
 	private int edad;
 	
-
+//Constructores
     public Perro() {}
     
 	public Perro(String raza, String tamanio, double peso, String nombre, String nombreDuenio, int edad) {
@@ -45,7 +45,7 @@ public class Perro {
 	}
 	
 
-
+//Setters an Getters
 	public String getRaza() {
 		return raza;
 	}
@@ -85,7 +85,7 @@ public class Perro {
 	
 	//Métodos / ¿Que hace?
 	public void ladrar() {
-		System.out.println("Me llamo: " + this.nombre + " mi dueño es: " + this.nombreDuenio +  " y Estoy ladrando: gua gua");
+		System.out.println("Me llamo: " + this.nombre + ",  mi dueño es: " + this.nombreDuenio +  " y Estoy ladrando: gua gua");
 	}
 
 	@Override

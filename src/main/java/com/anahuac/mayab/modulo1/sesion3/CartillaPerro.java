@@ -14,11 +14,9 @@ public class CartillaPerro {
 	
 	//constructores
 	public CartillaPerro() {
-		
 	}
 	
 	public CartillaPerro(Perro datosPerro, String idCartilla) {
-
 		this.datosPerro = datosPerro;
 		this.idCartilla = idCartilla;
 	}
@@ -44,6 +42,8 @@ public class CartillaPerro {
 		this.vacunas = vacunas;
 	}
 		
+	
+	
 	public void actualizar(String nombreVacuna, String fechaAplicacion) {
 		//Checar si la vacuna existe en la cartilla
 		if (vacunas.containsKey(nombreVacuna)) {
@@ -61,6 +61,9 @@ public class CartillaPerro {
 	
 	
 	public void imprimirCartilla(){
+		System.out.println("---- Datos Perro -----");
+		System.out.println(datosPerro.toString());
+		System.out.println("------------");
 		for(String vacuna : vacunas.keySet() ) {
 			System.out.println("Vacuna : " + vacuna);
 			ArrayList<String> fechas = vacunas.get(vacuna);
@@ -98,8 +101,7 @@ public class CartillaPerro {
     }
 	}
 	
-	
-	public void imprimirExepcion(){
+	/**	public void imprimirExepcion(){
 	String nombreArchivo = datosPerro.getNombre()+".txt";
 	FileWriter archivo;
 	try 
@@ -122,6 +124,6 @@ public class CartillaPerro {
     	System.out.println("Hubo un error al abrir");
         e.printStackTrace();
     }
-	}
+	}*/
 	
 }
