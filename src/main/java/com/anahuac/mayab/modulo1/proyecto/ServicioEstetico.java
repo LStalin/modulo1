@@ -15,14 +15,23 @@ public class ServicioEstetico extends Servicio{
 	public void cepillar() {
 		System.out.println("Cepillando " );
 	}
-	public void cortarUnias() {
+	public void corte() {
 		System.out.println("Cortando " );
 	}
 
 	public void realizar(String nombre) {
+		System.out.println("----------" );
 		System.out.println("Atendiendo a : " + nombre );
-		baniar();
-		cepillar();
-		cortarUnias();
+		if (getTipo() == "Banio") {
+			baniar();
+			cepillar();
+		}
+		else {
+			corte();
+			cepillar();
+			
+		}
+		System.out.println("----------" );
+				
 	}
 }

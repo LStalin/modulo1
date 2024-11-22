@@ -11,8 +11,8 @@ public class TestCartilla {
 		cartilla.actualizar("Moc", "5-marzo-2022");
 		
 	
-	cartilla.imprimirCartilla();
-	cartilla.imprimirExpediente();
+	//cartilla.imprimirCartilla();
+	//cartilla.imprimirExpediente();
 	}
 
 }

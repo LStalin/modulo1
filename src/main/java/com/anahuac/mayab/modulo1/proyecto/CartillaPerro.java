@@ -1,5 +1,6 @@
 package com.anahuac.mayab.modulo1.proyecto;
 
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,7 +11,9 @@ public class CartillaPerro {
 	//Atributos
 	private Perro datosPerro;
 	private String idCartilla;
-	HashMap<String, ArrayList<String>> vacunas = new HashMap<>();
+	HashMap<String, ArrayList<String>> servicios = new HashMap<>();
+	String nombreArchivo = "Sabueso Vete.txt";
+	
 	
 	//constructores
 	public CartillaPerro() {
@@ -21,75 +24,78 @@ public class CartillaPerro {
 		this.idCartilla = idCartilla;
 	}
 	
-	//getters y setters
+	
+	public CartillaPerro(Perro datosPerro, String idCartilla, HashMap<String, ArrayList<String>> servicios) {
+		super();
+		this.datosPerro = datosPerro;
+		this.idCartilla = idCartilla;
+		this.servicios = servicios;
+	}
+
+	//SETTERS AND GETTERS	
 	public Perro getDatosPerro() {
 		return datosPerro;
 	}
-	
+
 	public void setDatosPerro(Perro datosPerro) {
 		this.datosPerro = datosPerro;
 	}
+
 	public String getIdCartilla() {
 		return idCartilla;
 	}
+
 	public void setIdCartilla(String idCartilla) {
 		this.idCartilla = idCartilla;
 	}
-	public HashMap<String, ArrayList<String>> getVacunas() {
-		return vacunas;
+
+	public HashMap<String, ArrayList<String>> getServicios() {
+		return servicios;
 	}
-	public void setVacunas(HashMap<String, ArrayList<String>> vacunas) {
-		this.vacunas = vacunas;
+
+	public void setServicios(HashMap<String, ArrayList<String>> servicios) {
+		this.servicios = servicios;
 	}
-		
-	public void actualizar(String nombreVacuna, String fechaAplicacion) {
+
+	public void actualizar(String nombreServicios, String fechaAplicacion) {
 		//Checar si la vacuna existe en la cartilla
-		if (vacunas.containsKey(nombreVacuna)) {
-			ArrayList<String> fechas = vacunas.get(nombreVacuna);
+		if (servicios.containsKey(nombreServicios)) {
+			ArrayList<String> fechas = servicios.get(fechaAplicacion);
 			fechas.add(fechaAplicacion);
-			vacunas.put(nombreVacuna, fechas);
+			servicios.put(nombreServicios, fechas);
 		}
 		else { //NO existe
 			ArrayList<String> fechas = new ArrayList<>();
 			fechas.add(fechaAplicacion);
-			vacunas.put(nombreVacuna, fechas);
+			servicios.put(nombreServicios, fechas);
 		}
 		
 	}
 	
 	
-	public void imprimirCartilla(){
-		for(String vacuna : vacunas.keySet() ) {
-			System.out.println("Vacuna : " + vacuna);
-			ArrayList<String> fechas = vacunas.get(vacuna);
-			for (String fecha : fechas) {
-				System.out.println("Fecha : " + fecha);
-			}
-			System.out.println("----------" );
-		}
-		
+	public void imprimirCartilla(ArrayList<Servicio> lservi){
+				
+			System.out.println(datosPerro.toString());
+			System.out.println("Cartilla:  : " + idCartilla);
+			System.out.println("Servicio : " + servicios);
+			System.out.println("-------------");
+			
 	}
 	
 	
-	public void imprimirExpediente(){
-	String nombreArchivo = datosPerro.getNombre()+".txt";
-	FileWriter archivo;
+	
+	public void imprimirExpediente(ArrayList<Servicio> lservi1){
+		//FileWriter archivo;
 	try 
-    {  archivo = new FileWriter(nombreArchivo);
-        PrintWriter pw = new PrintWriter(archivo);
-        pw.println("---Datos Perro-----");
-        pw.println(datosPerro.toString());
-        pw.println("-----------");
-        
-        for(String vacuna : vacunas.keySet() ) {
-        	pw.println("Vacuna : " + vacuna);
-			ArrayList<String> fechas = vacunas.get(vacuna);
-			for (String fecha : fechas) {
-				pw.println("Fecha : " + fecha);
-			}
-			pw.println("-----------");
-		}
-        pw.close();
+	{  
+			BufferedWriter pw = new BufferedWriter(new FileWriter(nombreArchivo, true)); 	
+			
+			pw.newLine();
+        	pw.write("Nombre : " + datosPerro);
+			pw.write("\nCartilla:  : " + idCartilla);
+			pw.write("\nServicio : " + servicios);
+			pw.close();
+	                   
     } catch (IOException e) {
     	System.out.println("Hubo un error al abrir");
         e.printStackTrace();
@@ -103,13 +109,15 @@ public class CartillaPerro {
 	try 
     {  archivo = new FileWriter(nombreArchivo);
         PrintWriter pw = new PrintWriter(archivo);
-        pw.println("---Datos Perro-----");
-        pw.println(datosPerro.toString());
-        pw.println("-----------");
         
-        for(String vacuna : vacunas.keySet() ) {
-        	pw.println("Vacuna : " + vacuna);
-			ArrayList<String> fechas = vacunas.get(vacuna);
+        
+        for(String servicio : servicios.keySet() ) {
+        	pw.println("---Datos Perro-----");
+            pw.println(datosPerro.toString());
+            pw.println("-----------");
+        	pw.println("Cartilla:  : " + idCartilla);
+        	pw.println("Servicio : " + servicio);
+			ArrayList<String> fechas = servicios.get(servicio);
 			for (String fecha : fechas) {
 				pw.println("Fecha : " + fecha);
 			}
@@ -121,5 +129,15 @@ public class CartillaPerro {
         e.printStackTrace();
     }
 	}
+/*
+	public void imprimirExpediente(ArrayList<Servicio> listaServicioV) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void imprimirExpediente(ArrayList<Servicio> listaServicioV) {
+		// TODO Auto-generated method stub*/
+		
+	}
 	
-}
+

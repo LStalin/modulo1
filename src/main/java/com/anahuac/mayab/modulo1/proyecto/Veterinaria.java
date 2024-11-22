@@ -1,6 +1,6 @@
 package com.anahuac.mayab.modulo1.proyecto;
 
-public class Veterinaria   {
+public class Veterinaria  {
 	private String nombre;
 
 	public Veterinaria(String nombre) {
@@ -19,7 +19,7 @@ public class Veterinaria   {
 	public  Servicio crearServicio(String tipo, String nombre, String fecha) throws Exception{
 		Servicio servicio = null;
 		if(tipo == "Banio" || tipo == "Corte" ) {
-			servicio = new ServicioEstetico(tipo, 250, fecha, "encargadoEstetica");
+			servicio = new ServicioEstetico(tipo, 200, fecha, "encargadoEstetica");
 		}
 		else
 		{	if (tipo.startsWith("Vacuna") || tipo == "Consulta" ) {
@@ -32,5 +32,8 @@ public class Veterinaria   {
 		
 		}
 		return servicio;
+		
 	}
+	
+	//public Veterinaria agregarACartilla(ArrayList<> expedientes)
 }
