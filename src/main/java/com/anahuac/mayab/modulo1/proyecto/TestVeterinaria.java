@@ -8,7 +8,6 @@ public class TestVeterinaria {
 	public static void main(String[] args )  {
 		ArrayList<Servicio> listaServicioV = new ArrayList<Servicio>();
 		
-		
 		Perro perro = new Perro("Pastor", "Grande", 8.5 , "Pacho","Paty", 10);
 		CartillaPerro cartilla1 = new CartillaPerro(perro, "123a");
 				
@@ -18,22 +17,21 @@ public class TestVeterinaria {
 		
 		try {
 		Servicio servicio = vet.crearServicio("Corte", perro.getNombre(),"16-nov-24");
+		cartilla1.setDatosPerro(perro);
 		servicio.realizar(perro.getNombre());
 		cartilla1.actualizar("Corte", "5-marzo-2022");
-		cartilla1.actualizar("Consulta", "6-oct-2023");
-		//listaServicioV.add(servicio);
-		Servicio servicio2 = vet.crearServicio("Vacuna Rabia", perro2.getNombre(),"26-nov-24");
+		
+
+		Servicio servicio2 = vet.crearServicio("Vacuna", perro2.getNombre(),"26-nov-24");
+		cartilla2.setDatosPerro(perro2);
 		servicio2.realizar(perro2.getNombre());
 		cartilla2.actualizar("Vacuna", "26-dic-24");
 		cartilla2.actualizar("Banio", "6-ene-24");
-		//listaServicioV.add(servicio2);
+		cartilla1.actualizar("Consulta", "6-oct-2023");
 		
-
+		
 		listaServicioV.add(servicio);
-		
-		
 		listaServicioV.add(servicio2);
-		
 		
 		cartilla1.imprimirCartilla(listaServicioV);
 		cartilla1.imprimirExpediente(listaServicioV);

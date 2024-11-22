@@ -18,11 +18,12 @@ public class Veterinaria  {
 	
 	public  Servicio crearServicio(String tipo, String nombre, String fecha) throws Exception{
 		Servicio servicio = null;
+		
 		if(tipo == "Banio" || tipo == "Corte" ) {
 			servicio = new ServicioEstetico(tipo, 200, fecha, "encargadoEstetica");
 		}
 		else
-		{	if (tipo.startsWith("Vacuna") || tipo == "Consulta" ) {
+		{	if (tipo=="Vacuna" || tipo=="Consulta" ) {
 			servicio = new ServicioMedico(tipo, 250, fecha, "veterinario");
 			}
 			else
@@ -31,9 +32,9 @@ public class Veterinaria  {
 			}
 		
 		}
+
 		return servicio;
 		
 	}
 	
-	//public Veterinaria agregarACartilla(ArrayList<> expedientes)
 }

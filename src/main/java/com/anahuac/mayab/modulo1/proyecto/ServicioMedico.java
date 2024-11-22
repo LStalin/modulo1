@@ -16,11 +16,7 @@ public class ServicioMedico extends Servicio {
 	public void aplicaVac(String nombre) {
 		System.out.println("----------" );
 		System.out.println("Vacunando a .... " + nombre);
-		//Perro miPerro = new Perro( "unica" + nombre +, 5, "Paty");
-		//CartillaPerro cartilla = new CartillaPerro();
-		//cartilla.setDatosPerro(miPerro);
 		System.out.println("----------" );
-		//cartilla.actualizar("rabia", "25-marzo-2022");
 		
 	}
 	
@@ -34,8 +30,7 @@ public class ServicioMedico extends Servicio {
 		}
 		else {
 			aplicaVac(nombre);
-			
-			
+						
 		}
 		System.out.println("----------" );		
 	}

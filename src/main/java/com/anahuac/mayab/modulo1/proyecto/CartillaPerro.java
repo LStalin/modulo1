@@ -13,8 +13,7 @@ public class CartillaPerro {
 	private String idCartilla;
 	HashMap<String, ArrayList<String>> servicios = new HashMap<>();
 	String nombreArchivo = "Sabueso Vete.txt";
-	
-	
+		
 	//constructores
 	public CartillaPerro() {
 	}
@@ -23,8 +22,7 @@ public class CartillaPerro {
 		this.datosPerro = datosPerro;
 		this.idCartilla = idCartilla;
 	}
-	
-	
+		
 	public CartillaPerro(Perro datosPerro, String idCartilla, HashMap<String, ArrayList<String>> servicios) {
 		super();
 		this.datosPerro = datosPerro;
@@ -72,28 +70,22 @@ public class CartillaPerro {
 		
 	}
 	
-	
 	public void imprimirCartilla(ArrayList<Servicio> lservi){
-				
 			System.out.println(datosPerro.toString());
 			System.out.println("Cartilla:  : " + idCartilla);
-			System.out.println("Servicio : " + servicios);
+			System.out.println("Tratamientos : " + servicios);
 			System.out.println("-------------");
-			
 	}
 	
-	
-	
 	public void imprimirExpediente(ArrayList<Servicio> lservi1){
-		//FileWriter archivo;
 	try 
 	{  
 			BufferedWriter pw = new BufferedWriter(new FileWriter(nombreArchivo, true)); 	
-			
 			pw.newLine();
         	pw.write("Nombre : " + datosPerro);
 			pw.write("\nCartilla:  : " + idCartilla);
-			pw.write("\nServicio : " + servicios);
+			pw.write("\nTratamientos : " + servicios);
+			pw.write("\n");
 			pw.close();
 	                   
     } catch (IOException e) {
@@ -107,16 +99,14 @@ public class CartillaPerro {
 	String nombreArchivo = datosPerro.getNombre()+".txt";
 	FileWriter archivo;
 	try 
-    {  archivo = new FileWriter(nombreArchivo);
+    {  	archivo = new FileWriter(nombreArchivo);
         PrintWriter pw = new PrintWriter(archivo);
-        
-        
         for(String servicio : servicios.keySet() ) {
         	pw.println("---Datos Perro-----");
             pw.println(datosPerro.toString());
             pw.println("-----------");
         	pw.println("Cartilla:  : " + idCartilla);
-        	pw.println("Servicio : " + servicio);
+        	pw.println("Tratamientos : " + servicio);
 			ArrayList<String> fechas = servicios.get(servicio);
 			for (String fecha : fechas) {
 				pw.println("Fecha : " + fecha);
@@ -127,17 +117,8 @@ public class CartillaPerro {
     } catch (IOException e) {
     	System.out.println("Hubo un error al abrir");
         e.printStackTrace();
-    }
+    	}
 	}
-/*
-	public void imprimirExpediente(ArrayList<Servicio> listaServicioV) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void imprimirExpediente(ArrayList<Servicio> listaServicioV) {
-		// TODO Auto-generated method stub*/
-		
-	}
+}
 	
 
